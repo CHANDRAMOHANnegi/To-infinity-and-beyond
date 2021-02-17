@@ -1,38 +1,53 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  margin: 0 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.jobs_container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.jobs_container .filters {
+  width: 30%;
+  background-color: bisque;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.jobs_container .jobs_list {
+  width: 70%;
+  background-color: aqua;
+}
+
+/* Style job */
+
+.job {
+  min-width: 13rem;
+  border: 1px solid;
+  margin: 1.5rem;
+  padding: 1rem;
+  background-color: white;
+}
+
+.job .skills {
+  list-style: none;
+}
+
+.job .skills ul {
+  padding: 0;
+}
+
+.job .skills ul li {
+  list-style: none;
+  display: inline;
+}
+
+.job .skills .skill {
+  border: 1px solid #ffca70;
+  margin-right: 10px;
+  padding: 2px;
+  border-radius: 10px;
+}
+
+.job .job_title{
+  display: flex;
+  justify-content: space-between;
 }
