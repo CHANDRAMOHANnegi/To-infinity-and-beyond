@@ -9,7 +9,7 @@ function Job({ job, isSaved, unSaveJobRequest, saveJobRequest }) {
         type,
         date_created,
         skill_required,
-        location,
+        job_location,
         job_type,
         job_descrition
     } = job;
@@ -32,7 +32,7 @@ function Job({ job, isSaved, unSaveJobRequest, saveJobRequest }) {
                 </div>
             </div>
             <div className="job_title"><div>{job_name}</div><div>{job_type}</div></div>
-            <div>{`Location : ${location}`}</div>
+            <div>{`Location : ${job_location}`}</div>
             <div><p>{job_descrition}</p></div>
             <div className="skills">
                 <div style={{ marginRight: '10px' }}>Skills :</div>

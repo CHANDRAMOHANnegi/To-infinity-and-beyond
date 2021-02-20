@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactSelect from 'react-select';
 
-function Filter(props) {
+function Filter({ updateFilterRequest, appliedFilters }) {
 
     const [applyPreferences, togglePreferences] = useState(true);
 
-    const [preferences, setPreferences] = useState({
-        job_type: "All",
-        location: "All"
-    });
+    const [preferences, setPreferences] = useState(appliedFilters);
 
     const jobTypeOption = [
         { label: "All", value: "All" },
         { label: "Full-time", value: "Full-time" },
         { label: 'Internship', value: 'Internship' },
         { label: "Part-time", value: "Part-time" },
-        { label: 'Contract', value: 'Contract' },
     ];
 
     const jobLocationOption = [
@@ -23,8 +19,6 @@ function Filter(props) {
         { label: "Earth", value: "Earth" },
         { label: 'Mars', value: 'Mars' },
         { label: "Moon", value: "Moon" },
-        { label: 'Krypton', value: 'Krypton' },
-        { label: 'Titan', value: 'Titan' },
     ];
 
     const themeselect = theme => ({
@@ -37,47 +31,50 @@ function Filter(props) {
         },
     });
 
+    const handleChange = (opt, key) => {
+        const newPreferences = {
+            ...preferences,
+            [key]: opt.value,
+        }
+        setPreferences(newPreferences);
+        updateFilterRequest(newPreferences)
+    }
+
+    // useEffect(() => {
+    //     setPreferences(appliedFilters)
+    // }, [])
+
     return (
-        <div>
-            <div className={"preferences"}>
-                <div style={{ display: 'flex', justifyContent: "center" }}>
-                    <div>
-                        <input type="checkbox" onChange={() => togglePreferences(!applyPreferences)} checked={applyPreferences} />
-                    </div>
-                    <div>Preferences</div></div>
+        <div className={"filters"}>
+            <div style={{ display: 'flex', justifyContent: "center" }}>
                 <div>
-                    <div>
-                        <div>Job type</div>
-                        <ReactSelect
-                            name={"job_type"}
-                            disableUnderline={true}
-                            onChange={(opt) =>
-                                setPreferences({
-                                    ...preferences,
-                                    job_type: opt.value,
-                                })}
-                            value={jobTypeOption.find(el => el.value === preferences.job_type)}
-                            options={jobTypeOption}
-                            theme={themeselect}
-                        />
-                    </div>
+                    <input type="checkbox" onChange={() => togglePreferences(!applyPreferences)} checked={applyPreferences} />
+                </div>
+                <div>Preferences</div>
+            </div>
+            <div style={{ margin: '10px' }}>
+                <div className={'filter'}>
+                    <div>Job type</div>
+                    <ReactSelect
+                        name={"job_type"}
+                        disableUnderline={true}
+                        onChange={(opt) => handleChange(opt, 'job_type')}
+                        value={jobTypeOption.find(el => el.value === preferences.job_type)}
+                        options={jobTypeOption}
+                        theme={themeselect}
+                    />
+                </div>
 
-
-                    <div>
-                        <div>Location</div>
-                        <ReactSelect
-                            name={"job_type"}
-                            disableUnderline={true}
-                            onChange={(opt) =>
-                                setPreferences({
-                                    ...preferences,
-                                    location: opt.value,
-                                })}
-                            value={jobLocationOption.find(el => el.value === preferences.location)}
-                            options={jobLocationOption}
-                            theme={themeselect}
-                        />
-                    </div>
+                <div className={'filter'}>
+                    <div>Location</div>
+                    <ReactSelect
+                        name={"job_location"}
+                        disableUnderline={true}
+                        onChange={(opt) => handleChange(opt, 'job_location')}
+                        value={jobLocationOption.find(el => el.value === preferences.job_location)}
+                        options={jobLocationOption}
+                        theme={themeselect}
+                    />
                 </div>
             </div>
         </div>

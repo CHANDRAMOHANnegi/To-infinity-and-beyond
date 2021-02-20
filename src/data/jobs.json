@@ -9,7 +9,7 @@
             "Reactjs",
             "Cooking"
         ],
-        "location": "Crypton",
+        "job_location": "Mars",
         "no_of_positions": "2",
         "job_type": "Full-time",
         "last_application_date": "28/2/2021",
@@ -31,7 +31,7 @@
             "Fighting",
             "Cooking"
         ],
-        "location": "Titan",
+        "job_location": "Mars",
         "no_of_positions": "2",
         "job_type": "Internship",
         "last_application_date": "28/2/2021",
@@ -53,9 +53,9 @@
             "Reactjs",
             "Chilling"
         ],
-        "location": "Crypton",
+        "job_location": "Moon",
         "no_of_positions": "2",
-        "job_type": "Contract",
+        "job_type": "Part-time",
         "last_application_date": "28/2/2021",
         "job_descrition": "Save world from global warming",
         "applicants": [
@@ -75,7 +75,7 @@
             "Reactjs",
             "Chilling"
         ],
-        "location": "Crypton",
+        "job_location": "Earth",
         "no_of_positions": "2",
         "job_type": "Full-time",
         "last_application_date": "28/2/2021",
@@ -97,9 +97,9 @@
             "Reactjs",
             "Chilling"
         ],
-        "location": "Crypton",
+        "job_location": "Mars",
         "no_of_positions": "2",
-        "job_type": "Internship",
+        "job_type": "Contract",
         "last_application_date": "28/2/2021",
         "job_descrition": "Save world from global warming",
         "applicants": [
@@ -119,9 +119,9 @@
             "Reactjs",
             "Chilling"
         ],
-        "location": "Crypton",
+        "job_location": "Moon",
         "no_of_positions": "2",
-        "job_type": "Full-time",
+        "job_type": "Part-time",
         "last_application_date": "28/2/2021",
         "job_descrition": "Save world from global warming",
         "applicants": [

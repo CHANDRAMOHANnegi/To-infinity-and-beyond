@@ -7,6 +7,10 @@ const initialState = {
     loading: false,
     error: false,
     jobs: [],
+    filters: {
+        job_type: "All",
+        job_location: "All",
+    },
     message: ""
 };
 
@@ -26,12 +30,26 @@ function jobReducer(state = clone(initialState), { type, payload, error }) {
                 break;
             }
 
+            case actionTypes.UPDATE_JOB_FILTER_REQUEST: {
+                draft.loading = true;
+                draft.error = false;
+                break;
+            }
+
+            case actionTypes.UPDATE_JOB_FILTER_SUCCESS: {
+                draft.loading = false;
+                draft.error = false;
+                draft.filters = payload;
+                break;
+            }
+
             case actionTypes.FETCH_JOBS_ERROR: {
                 draft.loading = false;
                 draft.error = error;
                 break;
             }
-        }}
+        }
+    }
     )
 }
 

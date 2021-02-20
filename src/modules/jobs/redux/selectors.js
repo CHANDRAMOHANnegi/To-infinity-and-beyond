@@ -7,3 +7,9 @@ export const makeSelectJobs = createSelector(
     selectJobs,
     jobsState => jobsState.jobs
 );
+
+
+export const makeSelectFilters = createSelector(
+    selectJobs,
+    jobsState => jobsState.filters
+);

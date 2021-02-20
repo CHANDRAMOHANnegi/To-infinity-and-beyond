@@ -1,7 +1,7 @@
 [
     {
         "name": "chandramohan",
-        "location": "moon",
+        "location": "Moon",
         "skills": [
             "Reactjs",
             "java"
@@ -15,8 +15,8 @@
         ],
         "preferences": {
             "location": [
-                "moon",
-                "earth"
+                "Moon",
+                "Earth"
             ],
             "salary": 123,
             "job_type": "Full time"
