@@ -10,6 +10,7 @@ import { fetchUserRequest } from './modules/applicant/redux/action';
 import { fetchJobsRequest } from './modules/jobs/redux/actions';
 
 import Jobs from './modules/jobs/index';
+import Header from './components/Header';
 
 function App({ fetchJobsRequest, fetchUserRequest }) {
 
@@ -20,6 +21,7 @@ function App({ fetchJobsRequest, fetchUserRequest }) {
 
   return (
     <div className="App">
+      <Header />
       <Jobs />
     </div>
   );

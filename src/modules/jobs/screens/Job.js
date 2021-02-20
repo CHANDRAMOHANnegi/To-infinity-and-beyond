@@ -24,6 +24,7 @@ function Job({ job, isSaved, unSaveJobRequest, saveJobRequest }) {
                 position: "absolute",
                 right: 0,
                 top: -5,
+                cursor: "pointer"
             }}> <div onClick={toggleBookMark}>{isSaved ? <Bookmark>save</Bookmark> : <BookmarkBorderOutlined >save</BookmarkBorderOutlined>
             }</div>
             </div>
