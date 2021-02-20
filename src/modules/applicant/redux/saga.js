@@ -2,25 +2,23 @@
 import { FETCH_USER_REQUEST, SAVE_JOB_REQUEST, UNSAVE_JOB_REQUEST } from './constants';
 
 import { take, put, select, takeEvery, takeLatest, takeLeading } from '@redux-saga/core/effects';
-import { fetchUserSuccess, saveJobSuccess, unSaveJobRequest } from './action';
+import { fetchUserSuccess, saveJobSuccess, unSaveJobRequest, unSaveJobSuccess } from './action';
 import { makeSelectSavedJobs, makeSelectUserApplications } from './selectors';
 
 function* fetchUserSaga({ payload }) {
     yield put(fetchUserSuccess(payload));
 }
 
-
-function* saveJobsSaga({ payload, type }) {
-    const savedJobs = yield select(makeSelectSavedJobs());
-    // console.log('====>', savedJobs);
-    yield put(saveJobSuccess([]));
+function* saveJobsSaga({ payload: job_id }) {
+    console.log('savejob', job_id);
+    const savedJobs = yield select(makeSelectSavedJobs);
+    yield put(saveJobSuccess([...savedJobs, job_id]));
 }
 
-
-function* unSaveJobsSaga({ payload, type }) {
-    const savedJobs = yield select(makeSelectSavedJobs());
-    // console.log('====>', savedJobs);
-    yield put(saveJobSuccess([]));
+function* unSaveJobsSaga({ payload: job_id }) {
+    console.log('unSaveJobsSaga', job_id);
+    const savedJobs = yield select(makeSelectSavedJobs);
+    yield put(unSaveJobSuccess(savedJobs.filter(id => id != job_id)));
 }
 
 export default [

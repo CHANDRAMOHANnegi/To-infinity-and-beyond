@@ -3,7 +3,9 @@ import {
     FETCH_USER_SUCCESS,
     SAVE_JOB_REQUEST,
     SAVE_JOB_SUCCESS,
-    SAVE_JOB_ERROR
+    SAVE_JOB_ERROR,
+    UNSAVE_JOB_REQUEST,
+    UNSAVE_JOB_SUCCESS
 } from "./constants";
 
 export function fetchUserRequest(payload) {
@@ -44,14 +46,14 @@ export function saveJobError(payload) {
 
 export function unSaveJobRequest(payload) {
     return {
-        type: SAVE_JOB_REQUEST,
+        type: UNSAVE_JOB_REQUEST,
         payload,
     }
 }
 
 export function unSaveJobSuccess(payload) {
     return {
-        type: SAVE_JOB_SUCCESS,
+        type: UNSAVE_JOB_SUCCESS,
         payload,
     }
 }

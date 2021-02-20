@@ -29,14 +29,13 @@ function applicantReducer(state = clone(initialState), { type, payload, error })
             case actionTypes.SAVE_JOB_REQUEST: {
                 draft.loading = true;
                 draft.error = false;
-                draft.user.applications = payload;
                 break;
             }
 
             case actionTypes.SAVE_JOB_SUCCESS: {
                 draft.loading = false;
                 draft.error = false;
-                draft.user.applications = payload;
+                draft.user.saved_jobs = payload;
                 break;
             }
             case actionTypes.UNSAVE_JOB_REQUEST: {
@@ -48,7 +47,7 @@ function applicantReducer(state = clone(initialState), { type, payload, error })
             case actionTypes.UNSAVE_JOB_SUCCESS: {
                 draft.loading = false;
                 draft.error = false;
-                draft.user.applications = payload;
+                draft.user.saved_jobs = payload;
                 break;
             }
             case actionTypes.UNSAVE_JOB_ERROR: {

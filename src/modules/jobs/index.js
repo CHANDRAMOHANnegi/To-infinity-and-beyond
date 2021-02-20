@@ -10,15 +10,21 @@ import Tabs from './screens/Tabs';
 import { makeSelectSavedJobs } from '../applicant/redux/selectors';
 
 function Jobs({ jobs, saveJobRequest, unSaveJobRequest, savedJobs }) {
+    console.log(savedJobs);
     return (
         <div>
             <Tabs />
             <div className="jobs_container">
                 <div className="filters">Filters</div>
                 <div className="jobs_list">
-                    {jobs?.map(job => <Job job={job} key={job.job_id}
-                        saveJobRequest={saveJobRequest}
-                        unSaveJobRequest={unSaveJobRequest} />)}
+                    {jobs?.map(job => {
+                        const isSaved = savedJobs.find((id) => id == job.job_id);
+                        return <Job job={job} key={job.job_id}
+                            saveJobRequest={saveJobRequest}
+                            unSaveJobRequest={unSaveJobRequest}
+                            isSaved={isSaved}
+                        />
+                    })}
                 </div>
             </div>
         </div>
