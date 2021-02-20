@@ -26,15 +26,15 @@ function Jobs({
                 && (job_type == "All" || job.job_type == job_type)
         });
 
-        console.log(appliedFilters, newJobs);
+        // console.log(appliedFilters, newJobs);
         setJobs(newJobs);
     }, [appliedFilters]);
 
 
-    const [saved, applied] = [savedJobs, appliedJobs].map(jobs => alljobs.filter(j => jobs.includes(j.job_id)));
+    const [saved, applied] = [savedJobs, appliedJobs].map(job => jobs.filter(j => job.includes(j.job_id)));
     const currentJobs = [jobs, saved, applied];
 
-    console.log(currentJobs);
+    // console.log(currentJobs);
 
     return (
         <div>
