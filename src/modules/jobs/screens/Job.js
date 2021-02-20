@@ -25,16 +25,22 @@ function Job({ job, isSaved, unSaveJobRequest, saveJobRequest }) {
                 right: 0,
                 top: -5,
                 cursor: "pointer"
-            }}> <div onClick={toggleBookMark}>{isSaved ? <Bookmark>save</Bookmark> : <BookmarkBorderOutlined >save</BookmarkBorderOutlined>
-            }</div>
+            }}> <div onClick={toggleBookMark}>
+                    {isSaved ?
+                        <Bookmark>save</Bookmark> :
+                        <BookmarkBorderOutlined >save</BookmarkBorderOutlined>}
+                </div>
             </div>
             <div className="job_title"><div>{job_name}</div><div>{job_type}</div></div>
-            <div>{location}</div>
+            <div>{`Location : ${location}`}</div>
             <div><p>{job_descrition}</p></div>
             <div className="skills">
-                <ul>
-                    {skill_required.map(skill => <li key={skill} ><span className="skill">{skill}</span></li>)}
-                </ul>
+                <div style={{ marginRight: '10px' }}>Skills :</div>
+                <div>
+                    <ul>
+                        {skill_required.map(skill => <li key={skill} ><span className="skill">{skill}</span></li>)}
+                    </ul>
+                </div>
             </div>
         </div >
     );

@@ -12,6 +12,12 @@
   background-color: bisque;
 }
 
+.filters .preferences{
+  /* display: flex; */
+  /* al */
+}
+
+
 .jobs_container .jobs_list {
   width: 70%;
   background-color: aqua;
@@ -29,6 +35,8 @@
 
 .job .skills {
   list-style: none;
+  display: flex;
+  align-items: center;
 }
 
 .job .skills ul {

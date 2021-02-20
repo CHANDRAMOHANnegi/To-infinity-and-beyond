@@ -5,6 +5,7 @@ import { makeSelectJobs } from './redux/selectors';
 import { saveJobRequest, unSaveJobRequest } from '../applicant/redux/action';
 import Job from './screens/Job';
 import { makeSelectSavedJobs } from '../applicant/redux/selectors';
+import Filter from '../../components/Filter';
 
 function Jobs({
     alljobs, savedJobs, appliedJobs = [],
@@ -17,17 +18,26 @@ function Jobs({
 
     const jobs = [alljobs, saved, applied];
 
-    console.log(jobs);
+    // console.log(jobs);
+
+    
+
+
     return (
         <div>
             <div className="tabs">
-                {tabs.map((tab, i) => <div className={"tab"} onClick={() => setCurrentTab(i)} key={tabs[i]}>
-                    {tab}
-                    <div>{jobs[i].length}</div>
-                </div>)}
+                {tabs.map((tab, i) => (
+                    <div className={"tab"} style={{ backgroundColor: currentTab == i ? 'red' : "orange" }}
+                        onClick={() => setCurrentTab(i)} key={tabs[i]}>
+                        <div style={{}}> {tab}</div>
+                        <div>{jobs[i].length}</div>
+                    </div>))
+                }
             </div>
             <div className="jobs_container">
-                <div className="filters">Filters</div>
+                <div className="filters">
+                    <Filter />
+                </div>
                 <div className="jobs_list">
                     {jobs[currentTab]?.map(job => {
                         const isSaved = savedJobs.find((id) => id == job.job_id);

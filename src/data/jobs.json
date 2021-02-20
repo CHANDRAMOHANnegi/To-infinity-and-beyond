@@ -18,7 +18,8 @@
             2,
             4
         ],
-        "job_id": 1
+        "job_id": 1,
+        "salary": 20
     },
     {
         "job_name": "React developer",
@@ -32,14 +33,37 @@
         ],
         "location": "Titan",
         "no_of_positions": "2",
-        "job_type": "Full-time",
+        "job_type": "Internship",
         "last_application_date": "28/2/2021",
         "job_descrition": "Save world from corruption",
         "applicants": [
             2,
             4
         ],
-        "job_id": 2
+        "job_id": 2,
+        "salary": 30
+    },
+    {
+        "job_name": "React developer",
+        "date_created": "12/2/2021",
+        "date_updated": "12/2/2021",
+        "creater": "CM",
+        "no_of_application": 2,
+        "skill_required": [
+            "Reactjs",
+            "Chilling"
+        ],
+        "location": "Crypton",
+        "no_of_positions": "2",
+        "job_type": "Contract",
+        "last_application_date": "28/2/2021",
+        "job_descrition": "Save world from global warming",
+        "applicants": [
+            2,
+            4
+        ],
+        "job_id": 3,
+        "salary": 40
     },
     {
         "job_name": "React developer",
@@ -60,7 +84,30 @@
             2,
             4
         ],
-        "job_id": 3
+        "job_id": 4,
+        "salary": 50
+    },
+    {
+        "job_name": "React developer",
+        "date_created": "12/2/2021",
+        "date_updated": "12/2/2021",
+        "creater": "CM",
+        "no_of_application": 2,
+        "skill_required": [
+            "Reactjs",
+            "Chilling"
+        ],
+        "location": "Crypton",
+        "no_of_positions": "2",
+        "job_type": "Internship",
+        "last_application_date": "28/2/2021",
+        "job_descrition": "Save world from global warming",
+        "applicants": [
+            2,
+            4
+        ],
+        "job_id": 5,
+        "salary": 60
     },
     {
         "job_name": "React developer",
@@ -81,48 +128,7 @@
             2,
             4
         ],
-        "job_id": 4
-    },
-    {
-        "job_name": "React developer",
-        "date_created": "12/2/2021",
-        "date_updated": "12/2/2021",
-        "creater": "CM",
-        "no_of_application": 2,
-        "skill_required": [
-            "Reactjs",
-            "Chilling"
-        ],
-        "location": "Crypton",
-        "no_of_positions": "2",
-        "job_type": "Full-time",
-        "last_application_date": "28/2/2021",
-        "job_descrition": "Save world from global warming",
-        "applicants": [
-            2,
-            4
-        ],
-        "job_id": 5
-    },
-    {
-        "job_name": "React developer",
-        "date_created": "12/2/2021",
-        "date_updated": "12/2/2021",
-        "creater": "CM",
-        "no_of_application": 2,
-        "skill_required": [
-            "Reactjs",
-            "Chilling"
-        ],
-        "location": "Crypton",
-        "no_of_positions": "2",
-        "job_type": "Full-time",
-        "last_application_date": "28/2/2021",
-        "job_descrition": "Save world from global warming",
-        "applicants": [
-            2,
-            4
-        ],
-        "job_id": 6
+        "job_id": 6,
+        "salary": 70
     }
 ]
