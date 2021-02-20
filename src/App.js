@@ -1,19 +1,21 @@
 import './App.css';
-import { useEffect } from 'react';
-import { fetchJobs } from './modules/jobs/redux/actions';
 import { connect } from 'react-redux';
+
+import { useEffect } from 'react';
 
 import JobsData from './data/jobs.json';
 import UserData from './data/user.json';
 
-import Jobs from './modules/jobs/index';
-import { fetchUser } from './modules/applicant/redux/action';
+import { fetchUserRequest } from './modules/applicant/redux/action';
+import { fetchJobsRequest } from './modules/jobs/redux/actions';
 
-function App({ fetchJobs }) {
+import Jobs from './modules/jobs/index';
+
+function App({ fetchJobsRequest, fetchUserRequest }) {
 
   useEffect(() => {
-    fetchJobs(JobsData);
-    fetchUser(UserData[0]);
+    fetchUserRequest(UserData[0]);
+    fetchJobsRequest(JobsData);
   }, [])
 
   return (
@@ -23,4 +25,4 @@ function App({ fetchJobs }) {
   );
 }
 
-export default connect(null, { fetchJobs, fetchUser })(App);
+export default connect(null, { fetchJobsRequest, fetchUserRequest })(App);

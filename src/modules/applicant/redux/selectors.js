@@ -1,14 +1,19 @@
 import { createSelector } from 'reselect';
-import { pathOr } from 'ramda';
+import { pathOr, propOr } from 'ramda';
 
 const selectUser = state => state.user
 
-export const makeSelectUserApplications = () => createSelector(
+export const makeSelectUser = createSelector(
     selectUser,
+    userState => userState.user
+);
+
+export const makeSelectUserApplications = createSelector(
+    makeSelectUser,
     user => user.applications || []
 );
 
-export const makeSelectIsSavedJob = (jobId) => createSelector(
-    makeSelectUserApplications,
-    applications => applications
+export const makeSelectSavedJobs = createSelector(
+    makeSelectUser,
+    user => user.saved_jobs || []
 );

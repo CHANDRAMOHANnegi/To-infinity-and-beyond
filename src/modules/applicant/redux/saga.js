@@ -1,13 +1,30 @@
 
-import { SAVE_JOB_REQUEST } from './constants';
+import { FETCH_USER_REQUEST, SAVE_JOB_REQUEST, UNSAVE_JOB_REQUEST } from './constants';
 
-import { takeLatest, put } from '@redux-saga/core/effects';
-import { saveJobSuccess } from './action';
+import { take, put, select, takeEvery, takeLatest, takeLeading } from '@redux-saga/core/effects';
+import { fetchUserSuccess, saveJobSuccess, unSaveJobRequest } from './action';
+import { makeSelectSavedJobs, makeSelectUserApplications } from './selectors';
+
+function* fetchUserSaga({ payload }) {
+    yield put(fetchUserSuccess(payload));
+}
+
 
 function* saveJobsSaga({ payload, type }) {
-    yield put(saveJobSuccess(payload));
+    const savedJobs = yield select(makeSelectSavedJobs());
+    // console.log('====>', savedJobs);
+    yield put(saveJobSuccess([]));
+}
+
+
+function* unSaveJobsSaga({ payload, type }) {
+    const savedJobs = yield select(makeSelectSavedJobs());
+    // console.log('====>', savedJobs);
+    yield put(saveJobSuccess([]));
 }
 
 export default [
-    takeLatest(SAVE_JOB_REQUEST, saveJobsSaga),
+    takeLatest(FETCH_USER_REQUEST, fetchUserSaga),
+    takeEvery(SAVE_JOB_REQUEST, saveJobsSaga),
+    takeEvery(UNSAVE_JOB_REQUEST, unSaveJobsSaga),
 ];

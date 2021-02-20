@@ -1,9 +1,17 @@
-import { FETCH_USER_REQUEST, FETCH_USER_SUCCESS, SAVE_JOB_REQUEST, SAVE_JOB_SUCCESS, SAVE_JOB_ERROR } from "./constants";
+import {
+    FETCH_USER_REQUEST,
+    FETCH_USER_SUCCESS,
+    SAVE_JOB_REQUEST,
+    SAVE_JOB_SUCCESS,
+    SAVE_JOB_ERROR
+} from "./constants";
 
-export const fetchUser = (payload) => ({
-    type: FETCH_USER_REQUEST,
-    payload
-});
+export function fetchUserRequest(payload) {
+    return {
+        type: FETCH_USER_REQUEST,
+        payload
+    }
+}
 
 export function fetchUserSuccess(payload) {
     return {
@@ -34,7 +42,16 @@ export function saveJobError(payload) {
 }
 
 
+export function unSaveJobRequest(payload) {
+    return {
+        type: SAVE_JOB_REQUEST,
+        payload,
+    }
+}
 
-
-
-
+export function unSaveJobSuccess(payload) {
+    return {
+        type: SAVE_JOB_SUCCESS,
+        payload,
+    }
+}
