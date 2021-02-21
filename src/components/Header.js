@@ -10,12 +10,12 @@ function Header(props) {
             alignItems: "center",
             boxShadow: ' 0 0 5px #995',
             position: 'fixed',
-            top:"0",
-            width:"100%",
-            zIndex:'1'
+            top: "0",
+            width: "100%",
+            zIndex: '1'
         }}>
             <div>
-                Beyond Infinity
+                BEYOND
             </div>
 
             <div>
@@ -23,7 +23,7 @@ function Header(props) {
             </div>
 
             <div>
-                Beyond Infinity
+                INFINITY
             </div>
         </div>
     );

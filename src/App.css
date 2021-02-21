@@ -5,6 +5,7 @@
 
 .jobs_container {
   display: flex;
+  margin: 2rem;
 }
 
 .jobs_container .filters {
@@ -72,6 +73,8 @@
 @media only screen and (max-width: 600px) {
   .jobs_container {
     flex-direction: column;
+    margin: 0;
+    margin-bottom: 4rem;
   }
   .jobs_container .filters, .jobs_container .jobs_list {
     width: 100%;
@@ -86,7 +89,7 @@
     padding: 10px 0;
     box-shadow: 2px -3px 8px #999;
   }
-  .tabs .tab{
+  .tabs .tab {
     margin: 0;
     padding: 10px;
     box-shadow: none;

@@ -24,22 +24,20 @@ function Jobs({
                 && (job_type == "All" || job.job_type == job_type)
         });
         setJobs(newJobs);
-    }, [appliedFilters]);
+    }, [appliedFilters, alljobs]);
 
 
     const [saved, applied] = [savedJobs, appliedJobs].map(job => jobs.filter(j => job.includes(j.job_id)));
     const currentJobs = [jobs, saved, applied];
 
-    console.log(currentJobs);
-
     return (
         <div>
             <div className="tabs">
                 {tabs.map((tab, i) => (
-                    <div className={"tab"} style={{ 
-                        backgroundColor: currentTab == i ? '#ffca70' : "white" ,
-                        color: currentTab == i ? 'white' : "black" 
-                }}
+                    <div className={"tab"} style={{
+                        backgroundColor: currentTab == i ? '#ffca70' : "white",
+                        color: currentTab == i ? 'white' : "black"
+                    }}
                         onClick={() => setCurrentTab(i)} key={tabs[i]}>
                         <div style={{}}> {tab}</div>
                         <div>{currentJobs[i].length}</div>
@@ -49,7 +47,7 @@ function Jobs({
             <div className="jobs_container">
                 <Filter updateFilterRequest={updateFilterRequest} appliedFilters={appliedFilters} />
                 <div className="jobs_list">
-                    {currentJobs[currentTab]?.map(job => {
+                    {currentJobs[currentTab].length > 0 ? currentJobs[currentTab].map(job => {
                         const [isSaved, isApplied] = [savedJobs, appliedJobs].map(jo => jo.find((id) => id == job.job_id));
                         return <Job job={job}
                             key={job.job_id}
@@ -59,7 +57,11 @@ function Jobs({
                             isApplied={isApplied}
                             applyJobRequest={applyJobRequest}
                         />
-                    })}
+                    }) :
+                        <div style={{
+                            textAlign: "center"
+                        }}>No jobs found</div>
+                    }
                 </div>
             </div>
         </div>

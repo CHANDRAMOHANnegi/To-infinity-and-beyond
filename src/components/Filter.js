@@ -47,10 +47,10 @@ function Filter({ updateFilterRequest, appliedFilters }) {
     return (
         <div className={"filters"}>
             <div style={{ display: 'flex', justifyContent: "center" }}>
-                <div>
+                {/* <div>
                     <input type="checkbox" onChange={() => togglePreferences(!applyPreferences)} checked={applyPreferences} />
-                </div>
-                <div>Preferences</div>
+                </div> */}
+                <div>Filters</div>
             </div>
             <div style={{ margin: '10px' }}>
                 <div className={'filter'}>
