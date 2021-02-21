@@ -1,7 +1,6 @@
 import './App.css';
 import { connect } from 'react-redux';
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import JobsData from './data/jobs.json';
 import UserData from './data/user.json';
@@ -27,10 +26,12 @@ function App({ fetchJobsRequest, fetchUserRequest, loading }) {
     })()
   }, [])
 
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <div className="App">
-      <Header />
-      {loading ? <div>Loading ...</div> : <Jobs />}
+      <Header setSearchQuery={setSearchQuery} />
+      {loading ? <div>Loading ...</div> : <Jobs searchQuery={searchQuery} />}
     </div>
   );
 }

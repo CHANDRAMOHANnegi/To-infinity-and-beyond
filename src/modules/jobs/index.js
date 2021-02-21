@@ -8,11 +8,13 @@ import { makeSelectSavedJobs, makeSelectUserApplications, } from '../applicant/r
 import Filter from '../../components/Filter';
 import { updateFilterRequest, } from './redux/actions'
 import Modal from '../../components/Modal';
+import { filterSearch } from './helpers.js';
 
 function Jobs({
     alljobs, savedJobs, appliedJobs = [],
     saveJobRequest, unSaveJobRequest,
-    updateFilterRequest, appliedFilters, applyJobRequest
+    updateFilterRequest, appliedFilters, applyJobRequest,
+    searchQuery = ""
 }) {
     const tabs = ['All Jobs', 'Saved Jobs', 'Applied Jobs'];
     const [currentTab, setCurrentTab] = useState(0);
@@ -20,22 +22,18 @@ function Jobs({
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        const { job_type, job_location, company } = appliedFilters;
-        const newJobs = alljobs.filter(job => {
-            return (job_location == "All" || job.job_location == job_location)
-                && (job_type == "All" || job.job_type == job_type)
-                && (company == "All" || job.company == company)
-        });
+        const newJobs = filterSearch(alljobs, appliedFilters, searchQuery);
         setJobs(newJobs);
-    }, [appliedFilters, alljobs]);
+    }, [appliedFilters, alljobs, searchQuery]);
 
     const onClose = () => {
         setIsOpen(false)
     }
 
-
     const [saved, applied] = [savedJobs, appliedJobs].map(job => jobs.filter(j => job.includes(j.job_id)));
     const currentJobs = [jobs, saved, applied];
+
+    console.log(alljobs);
 
     return (
         <>

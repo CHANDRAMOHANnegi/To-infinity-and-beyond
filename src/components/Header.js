@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Header(props) {
+function Header({ setSearchQuery }) {
+
+    const [query, setQuery] = useState('');
+
+    const handleSearch = () => {
+        setSearchQuery(query);
+    }
+
     return (
         <div style={{
             display: 'flex',
@@ -17,11 +24,25 @@ function Header(props) {
             <div>
                 BEYOND
             </div>
-
             <div>
-                <input placeholder={"Search job by location company"} />
+                <input placeholder={"Search job by location,company"}
+                    style={{
+                        border: '2px solid #ffca70',
+                        padding: '10px',
+                        borderRadius: '10px',
+                    }}
+                    onKeyUp={({ key }) => {
+                        if (key == 'Enter') {
+                            handleSearch()
+                        }
+                    }}
+                    value={query}
+                    onChange={(e) => {
+                        setQuery(e.target.value)
+                    }}
+                />
+                <button onClick={handleSearch}>Search</button>
             </div>
-
             <div>
                 INFINITY
             </div>

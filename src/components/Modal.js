@@ -23,13 +23,12 @@ const OVERLAY_STYLE = {
 
 function Modal({ isOpen, onClose, applyJobRequest, appliedJobs }) {
 
-    console.log(appliedJobs, isOpen);
     if (!isOpen) return null;
 
     const {
         job_id,
         job_name,
-        skill_required,
+        skills,
         job_location,
         job_type,
         job_descrition, company,
@@ -53,7 +52,7 @@ function Modal({ isOpen, onClose, applyJobRequest, appliedJobs }) {
                             <div style={{ marginRight: '10px', fontWeight: 'bold' }}>Skills </div>
                             <div>
                                 <ul>
-                                    {skill_required.map(skill => <li key={skill} ><span className="skill">{skill}</span></li>)}
+                                    {skills.map(skill => <li key={skill} ><span className="skill">{skill}</span></li>)}
                                 </ul>
                             </div>
                         </div>

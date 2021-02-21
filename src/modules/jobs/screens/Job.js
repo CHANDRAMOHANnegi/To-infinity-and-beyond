@@ -6,7 +6,7 @@ function Job({
     const {
         job_id,
         job_name,
-        skill_required,
+        skills,
         job_location,
         job_type,
         job_descrition, company,
@@ -38,7 +38,7 @@ function Job({
                     <div style={{ marginRight: '10px' }}>Skills :</div>
                     <div>
                         <ul>
-                            {skill_required.map(skill => <li key={skill} ><span className="skill">{skill}</span></li>)}
+                            {skills.map(skill => <li key={skill} ><span className="skill">{skill}</span></li>)}
                         </ul>
                     </div>
                 </div>

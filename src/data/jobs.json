@@ -5,9 +5,9 @@
         "date_updated": "12/2/2021",
         "creater": "CM",
         "no_of_application": 2,
-        "skill_required": [
+        "skills": [
             "Reactjs",
-            "Cooking"
+            "Html"
         ],
         "job_location": "Mars",
         "no_of_positions": "2",
@@ -28,9 +28,9 @@
         "date_updated": "12/2/2021",
         "creater": "CM",
         "no_of_application": 2,
-        "skill_required": [
-            "Fighting",
-            "Cooking"
+        "skills": [
+            "Python",
+            "Golang"
         ],
         "job_location": "Mars",
         "no_of_positions": "2",
@@ -51,9 +51,9 @@
         "date_updated": "12/2/2021",
         "creater": "CM",
         "no_of_application": 2,
-        "skill_required": [
-            "Reactjs",
-            "Chilling"
+        "skills": [
+            "Angular",
+            "Javascript"
         ],
         "job_location": "Moon",
         "no_of_positions": "2",
@@ -74,9 +74,9 @@
         "date_updated": "12/2/2021",
         "creater": "CM",
         "no_of_application": 2,
-        "skill_required": [
+        "skills": [
             "Reactjs",
-            "Chilling"
+            "Nodejs"
         ],
         "job_location": "Earth",
         "no_of_positions": "2",
@@ -97,9 +97,9 @@
         "date_updated": "12/2/2021",
         "creater": "CM",
         "no_of_application": 2,
-        "skill_required": [
+        "skills": [
             "Reactjs",
-            "Chilling"
+            "Html"
         ],
         "job_location": "Mars",
         "no_of_positions": "2",
@@ -120,9 +120,9 @@
         "date_updated": "12/2/2021",
         "creater": "CM",
         "no_of_application": 2,
-        "skill_required": [
-            "Reactjs",
-            "Chilling"
+        "skills": [
+            "Java",
+            "Css"
         ],
         "job_location": "Moon",
         "no_of_positions": "2",
