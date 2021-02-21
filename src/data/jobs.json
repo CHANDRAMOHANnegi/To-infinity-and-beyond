@@ -19,7 +19,8 @@
             4
         ],
         "job_id": 1,
-        "salary": 20
+        "salary": 20,
+        "company": "SOFTWARE"
     },
     {
         "job_name": "React developer",
@@ -41,7 +42,8 @@
             4
         ],
         "job_id": 2,
-        "salary": 30
+        "salary": 30,
+        "company": "HEALTHCARE"
     },
     {
         "job_name": "React developer",
@@ -63,7 +65,8 @@
             4
         ],
         "job_id": 3,
-        "salary": 40
+        "salary": 40,
+        "company": "HEALTHCARE"
     },
     {
         "job_name": "React developer",
@@ -85,7 +88,8 @@
             4
         ],
         "job_id": 4,
-        "salary": 50
+        "salary": 50,
+        "company": "SPACE FORCE"
     },
     {
         "job_name": "React developer",
@@ -107,7 +111,8 @@
             4
         ],
         "job_id": 5,
-        "salary": 60
+        "salary": 60,
+        "company": "SOFTWARE"
     },
     {
         "job_name": "React developer",
@@ -129,6 +134,7 @@
             4
         ],
         "job_id": 6,
-        "salary": 70
+        "salary": 70,
+        "company": "SPACE FORCE"
     }
 ]

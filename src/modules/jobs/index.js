@@ -18,10 +18,11 @@ function Jobs({
     const [jobs, setJobs] = useState(alljobs);
 
     useEffect(() => {
-        const { job_type, job_location } = appliedFilters;
+        const { job_type, job_location, company } = appliedFilters;
         const newJobs = alljobs.filter(job => {
             return (job_location == "All" || job.job_location == job_location)
                 && (job_type == "All" || job.job_type == job_type)
+                && (company == "All" || job.company == company)
         });
         setJobs(newJobs);
     }, [appliedFilters, alljobs]);

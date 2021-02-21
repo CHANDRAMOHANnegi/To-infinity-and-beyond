@@ -10,6 +10,7 @@ const initialState = {
     filters: {
         job_type: "All",
         job_location: "All",
+        company:"All"
     },
     message: ""
 };

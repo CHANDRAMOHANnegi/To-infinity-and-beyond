@@ -8,7 +8,7 @@ function Job({
         skill_required,
         job_location,
         job_type,
-        job_descrition
+        job_descrition,company,
     }, isSaved, isApplied, unSaveJobRequest, saveJobRequest, applyJobRequest }) {
 
     const toggleBookMark = () => {
@@ -30,6 +30,7 @@ function Job({
             </div>
             <div className="job_title"><div>{job_name}</div><div>{job_type}</div></div>
             <div>{`Location : ${job_location}`}</div>
+            <div>{`Company : ${company}`}</div>
             <div><p>{job_descrition}</p></div>
             <div className="skills">
                 <div style={{ marginRight: '10px' }}>Skills :</div>

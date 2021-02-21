@@ -21,6 +21,13 @@ function Filter({ updateFilterRequest, appliedFilters }) {
         { label: "Moon", value: "Moon" },
     ];
 
+    const companyOption = [
+        { label: "All", value: "All" },
+        { label: "SOFTWARE", value: "SOFTWARE" },
+        { label: "HEALTHCARE", value: "HEALTHCARE" },
+        { label: 'SPACE-FORCE', value: 'SPACE-FORCE' },
+    ];
+
     const themeselect = theme => ({
         ...theme,
         borderRadius: 1,
@@ -73,6 +80,18 @@ function Filter({ updateFilterRequest, appliedFilters }) {
                         onChange={(opt) => handleChange(opt, 'job_location')}
                         value={jobLocationOption.find(el => el.value === preferences.job_location)}
                         options={jobLocationOption}
+                        theme={themeselect}
+                    />
+                </div>
+
+                <div className={'filter'}>
+                    <div>Company</div>
+                    <ReactSelect
+                        name={"company"}
+                        disableUnderline={true}
+                        onChange={(opt) => handleChange(opt, 'company')}
+                        value={companyOption.find(el => el.value === preferences.company)}
+                        options={companyOption}
                         theme={themeselect}
                     />
                 </div>
