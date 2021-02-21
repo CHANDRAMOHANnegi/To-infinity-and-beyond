@@ -50,16 +50,9 @@ function Filter({ updateFilterRequest, appliedFilters }) {
         updateFilterRequest(newPreferences)
     }
 
-    // useEffect(() => {
-    //     setPreferences(appliedFilters)
-    // }, [])
-
     return (
         <div className={"filters"}>
             <div style={{ display: 'flex', justifyContent: "center" }}>
-                {/* <div>
-                    <input type="checkbox" onChange={() => togglePreferences(!applyPreferences)} checked={applyPreferences} />
-                </div> */}
                 <div>Filters</div>
             </div>
             <div style={{ margin: '10px' }}>

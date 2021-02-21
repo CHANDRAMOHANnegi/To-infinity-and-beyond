@@ -7,12 +7,13 @@ const initialState = {
     loading: false,
     error: false,
     jobs: [],
+    message: "",
     filters: {
         job_type: "All",
         job_location: "All",
-        company:"All"
+        company: "All"
     },
-    message: ""
+    currentJob: false
 };
 
 function jobReducer(state = clone(initialState), { type, payload, error }) {

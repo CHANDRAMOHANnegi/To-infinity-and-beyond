@@ -7,6 +7,7 @@ import Job from './screens/Job';
 import { makeSelectSavedJobs, makeSelectUserApplications, } from '../applicant/redux/selectors';
 import Filter from '../../components/Filter';
 import { updateFilterRequest, } from './redux/actions'
+import Modal from '../../components/Modal';
 
 function Jobs({
     alljobs, savedJobs, appliedJobs = [],
@@ -16,6 +17,7 @@ function Jobs({
     const tabs = ['All Jobs', 'Saved Jobs', 'Applied Jobs'];
     const [currentTab, setCurrentTab] = useState(0);
     const [jobs, setJobs] = useState(alljobs);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const { job_type, job_location, company } = appliedFilters;
@@ -27,12 +29,16 @@ function Jobs({
         setJobs(newJobs);
     }, [appliedFilters, alljobs]);
 
+    const onClose = () => {
+        setIsOpen(false)
+    }
+
 
     const [saved, applied] = [savedJobs, appliedJobs].map(job => jobs.filter(j => job.includes(j.job_id)));
     const currentJobs = [jobs, saved, applied];
 
     return (
-        <div>
+        <>
             <div className="tabs">
                 {tabs.map((tab, i) => (
                     <div className={"tab"} style={{
@@ -57,6 +63,7 @@ function Jobs({
                             isSaved={isSaved}
                             isApplied={isApplied}
                             applyJobRequest={applyJobRequest}
+                            setIsOpen={setIsOpen}
                         />
                     }) :
                         <div style={{
@@ -65,7 +72,8 @@ function Jobs({
                     }
                 </div>
             </div>
-        </div>
+            <Modal isOpen={isOpen} onClose={onClose} applyJobRequest={applyJobRequest} appliedJobs={appliedJobs} />
+        </>
     );
 }
 
