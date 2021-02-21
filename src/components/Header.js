@@ -22,7 +22,7 @@ function Header({ setSearchQuery }) {
             zIndex: '1'
         }}>
             <h1 className={'d-none'}>
-                BEYOND
+                <a href={"https://github.com/CHANDRAMOHANnegi/To-infinity-and-beyond"} target={"_blank"}>  BEYOND</a>
             </h1>
             <div style={{ display: "flex", flexWrap: "nowrap" }}>
                 <input placeholder={"Search job by location,company,skills"}
