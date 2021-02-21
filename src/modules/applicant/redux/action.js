@@ -5,7 +5,9 @@ import {
     SAVE_JOB_SUCCESS,
     SAVE_JOB_ERROR,
     UNSAVE_JOB_REQUEST,
-    UNSAVE_JOB_SUCCESS
+    UNSAVE_JOB_SUCCESS,
+    APPLY_JOB_REQUEST,
+    APPLY_JOB_SUCCESS
 } from "./constants";
 
 export function fetchUserRequest(payload) {
@@ -54,6 +56,21 @@ export function unSaveJobRequest(payload) {
 export function unSaveJobSuccess(payload) {
     return {
         type: UNSAVE_JOB_SUCCESS,
+        payload,
+    }
+}
+
+
+export function applyJobRequest(payload) {
+    return {
+        type: APPLY_JOB_REQUEST,
+        payload,
+    }
+}
+
+export function applyJobSuccess(payload) {
+    return {
+        type: APPLY_JOB_SUCCESS,
         payload,
     }
 }

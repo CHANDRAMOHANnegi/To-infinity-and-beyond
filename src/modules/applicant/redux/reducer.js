@@ -55,6 +55,18 @@ function applicantReducer(state = clone(initialState), { type, payload, error })
                 draft.error = error;
                 break;
             }
+            case actionTypes.APPLY_JOB_REQUEST: {
+                draft.loading = true;
+                draft.error = false;
+                break;
+            }
+
+            case actionTypes.APPLY_JOB_SUCCESS: {
+                draft.loading = false;
+                draft.error = false;
+                draft.user.applications = payload;
+                break;
+            }
         }
     })
 }

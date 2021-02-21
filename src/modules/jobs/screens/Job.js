@@ -1,18 +1,15 @@
 import React from 'react';
 import { BookmarkBorderOutlined, Bookmark } from '@material-ui/icons';
 
-function Job({ job, isSaved, unSaveJobRequest, saveJobRequest }) {
-
-    const {
+function Job({
+    job: {
         job_id,
         job_name,
-        type,
-        date_created,
         skill_required,
         job_location,
         job_type,
         job_descrition
-    } = job;
+    }, isSaved, isApplied, unSaveJobRequest, saveJobRequest, applyJobRequest }) {
 
     const toggleBookMark = () => {
         isSaved ? unSaveJobRequest(job_id) : saveJobRequest(job_id)
@@ -42,6 +39,11 @@ function Job({ job, isSaved, unSaveJobRequest, saveJobRequest }) {
                     </ul>
                 </div>
             </div>
+            {isApplied ? <div style={{ border: '2px solid #ffca70', width: '100px', textAlign: "center" }}>Applied</div> : <button style={{
+                border: '2px solid #ffca70', width: '100px', textAlign: "center"
+            }}
+                onClick={() => applyJobRequest(job_id)}
+            >Apply</button>}
         </div >
     );
 }

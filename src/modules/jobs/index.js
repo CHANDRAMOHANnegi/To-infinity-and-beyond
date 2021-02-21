@@ -2,21 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { makeSelectJobs, makeSelectFilters } from './redux/selectors';
-import { saveJobRequest, unSaveJobRequest } from '../applicant/redux/action';
+import { saveJobRequest, unSaveJobRequest, applyJobRequest } from '../applicant/redux/action';
 import Job from './screens/Job';
-import { makeSelectSavedJobs, } from '../applicant/redux/selectors';
+import { makeSelectSavedJobs, makeSelectUserApplications, } from '../applicant/redux/selectors';
 import Filter from '../../components/Filter';
-import { updateFilterRequest } from './redux/actions'
+import { updateFilterRequest, } from './redux/actions'
 
 function Jobs({
     alljobs, savedJobs, appliedJobs = [],
     saveJobRequest, unSaveJobRequest,
-    updateFilterRequest, appliedFilters
+    updateFilterRequest, appliedFilters, applyJobRequest
 }) {
     const tabs = ['All Jobs', 'Saved Jobs', 'Applied Jobs'];
-
     const [currentTab, setCurrentTab] = useState(0);
-
     const [jobs, setJobs] = useState(alljobs);
 
     useEffect(() => {
@@ -25,8 +23,6 @@ function Jobs({
             return (job_location == "All" || job.job_location == job_location)
                 && (job_type == "All" || job.job_type == job_type)
         });
-
-        // console.log(appliedFilters, newJobs);
         setJobs(newJobs);
     }, [appliedFilters]);
 
@@ -34,13 +30,16 @@ function Jobs({
     const [saved, applied] = [savedJobs, appliedJobs].map(job => jobs.filter(j => job.includes(j.job_id)));
     const currentJobs = [jobs, saved, applied];
 
-    // console.log(currentJobs);
+    console.log(currentJobs);
 
     return (
         <div>
             <div className="tabs">
                 {tabs.map((tab, i) => (
-                    <div className={"tab"} style={{ backgroundColor: currentTab == i ? 'red' : "orange" }}
+                    <div className={"tab"} style={{ 
+                        backgroundColor: currentTab == i ? '#ffca70' : "white" ,
+                        color: currentTab == i ? 'white' : "black" 
+                }}
                         onClick={() => setCurrentTab(i)} key={tabs[i]}>
                         <div style={{}}> {tab}</div>
                         <div>{currentJobs[i].length}</div>
@@ -51,12 +50,14 @@ function Jobs({
                 <Filter updateFilterRequest={updateFilterRequest} appliedFilters={appliedFilters} />
                 <div className="jobs_list">
                     {currentJobs[currentTab]?.map(job => {
-                        const isSaved = savedJobs.find((id) => id == job.job_id);
+                        const [isSaved, isApplied] = [savedJobs, appliedJobs].map(jo => jo.find((id) => id == job.job_id));
                         return <Job job={job}
                             key={job.job_id}
                             saveJobRequest={saveJobRequest}
                             unSaveJobRequest={unSaveJobRequest}
                             isSaved={isSaved}
+                            isApplied={isApplied}
+                            applyJobRequest={applyJobRequest}
                         />
                     })}
                 </div>
@@ -68,7 +69,8 @@ function Jobs({
 const mapStateToProps = createStructuredSelector({
     alljobs: makeSelectJobs,
     savedJobs: makeSelectSavedJobs,
+    appliedJobs: makeSelectUserApplications,
     appliedFilters: makeSelectFilters
 });
 
-export default connect(mapStateToProps, { saveJobRequest, unSaveJobRequest, updateFilterRequest })(Jobs);
+export default connect(mapStateToProps, { saveJobRequest, unSaveJobRequest, updateFilterRequest, applyJobRequest })(Jobs);

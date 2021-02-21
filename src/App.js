@@ -15,8 +15,15 @@ import Header from './components/Header';
 function App({ fetchJobsRequest, fetchUserRequest }) {
 
   useEffect(() => {
-    fetchUserRequest(UserData[0]);
-    fetchJobsRequest(JobsData);
+    (async function () {
+      const firstTime = await localStorage.getItem('firstTime');
+      console.log(firstTime, typeof firstTime);
+      if (!firstTime || firstTime == null) {
+        console.log('======');
+        fetchUserRequest(UserData[0])
+        fetchJobsRequest(JobsData)
+      } else localStorage.setItem('firstTime', 'firstTime');
+    })()
   }, [])
 
   return (
