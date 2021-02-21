@@ -21,6 +21,11 @@ button:hover {
 
 /* ********** */
 
+input {
+  width: 225px;
+  margin-right: 10px;
+}
+
 .jobs_container {
   display: flex;
   margin: 2rem;
@@ -85,6 +90,7 @@ button:hover {
   border-radius: 10px;
   cursor: pointer;
   color: white;
+  width: 100px;
   box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
 }
 
@@ -113,6 +119,12 @@ button:hover {
     box-shadow: none;
     text-align: center;
     font-size: 14px;
+  }
+  .d-none {
+    display: none;
+  }
+  input {
+    width: 160px;
   }
 }
 
@@ -148,7 +160,7 @@ button:hover {
 
 .apply_button_container .applied {
   color: orange;
-  padding:2px 5px;
+  padding: 2px 5px;
   border: 2px solid orange;
   border-radius: 10px;
 }

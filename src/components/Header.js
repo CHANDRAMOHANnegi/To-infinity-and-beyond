@@ -21,11 +21,11 @@ function Header({ setSearchQuery }) {
             width: "100%",
             zIndex: '1'
         }}>
-            <div>
+            <h1 className={'d-none'}>
                 BEYOND
-            </div>
-            <div>
-                <input placeholder={"Search job by location,company"}
+            </h1>
+            <div style={{ display: "flex", flexWrap: "nowrap" }}>
+                <input placeholder={"Search job by location,company,skills"}
                     style={{
                         border: '2px solid #ffca70',
                         padding: '10px',
@@ -43,9 +43,9 @@ function Header({ setSearchQuery }) {
                 />
                 <button onClick={handleSearch}>Search</button>
             </div>
-            <div>
+            <h1 className={'d-none'}>
                 INFINITY
-            </div>
+            </h1>
         </div>
     );
 }
