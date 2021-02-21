@@ -3,8 +3,11 @@ import ReactSelect from 'react-select';
 
 function Filter({ updateFilterRequest, appliedFilters }) {
 
-    const [applyPreferences, togglePreferences] = useState(true);
-
+    const defaultFilters = {
+        job_type: "All",
+        job_location: "All",
+        company: "All"
+    }
     const [preferences, setPreferences] = useState(appliedFilters);
 
     const jobTypeOption = [
@@ -96,6 +99,14 @@ function Filter({ updateFilterRequest, appliedFilters }) {
                     />
                 </div>
             </div>
+
+            <div style={{ textAlign: "center", }}><button style={{ border: "1px solid #ffca70", backgroundColor: "white", padding: '10px' }}
+                onClick={() => {
+                    setPreferences(defaultFilters);
+                    updateFilterRequest(defaultFilters);
+                }}
+            >Clear filters</button></div>
+
         </div>
     );
 }

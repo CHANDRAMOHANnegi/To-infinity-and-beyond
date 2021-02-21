@@ -8,7 +8,7 @@ function Job({
         skill_required,
         job_location,
         job_type,
-        job_descrition,company,
+        job_descrition, company,
     }, isSaved, isApplied, unSaveJobRequest, saveJobRequest, applyJobRequest }) {
 
     const toggleBookMark = () => {
