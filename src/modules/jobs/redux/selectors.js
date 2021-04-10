@@ -1,10 +1,16 @@
 import { createSelector } from 'reselect';
-import { pathOr } from 'ramda';
 
-const selectJobs = state => state.jobs;
+const selectJobs = state => state.jobReducer;
 
 export const makeSelectJobs = () => createSelector(
     selectJobs,
     jobsState => jobsState.jobs
+);
+  
+
+
+export const makeSelectJobsLoading = () => createSelector(
+    selectJobs,
+    jobsState => jobsState.loading
 );
   

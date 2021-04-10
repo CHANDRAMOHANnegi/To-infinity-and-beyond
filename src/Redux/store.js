@@ -16,11 +16,14 @@ const persistConfig = {
   storage: storage,
 };
 
+const logger = createLogger({ diff: true });
+
 // Middlewares setup
 const sagaMiddleware = createSagaMiddleware();
 const middlewareEnhancer =
   applyMiddleware(
     sagaMiddleware,
+    // logger
   )
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
