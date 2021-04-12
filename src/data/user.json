@@ -1,62 +1,16 @@
-[
-    {
-        "name": "chandramohan",
-        "location": "moon",
-        "skills": [
-            "Reactjs",
-            "java"
+{
+    "name": "chandramohan",
+    "location": "moon",
+    "skills": [
+        "Reactjs",
+        "java"
+    ],
+    "preferences": {
+        "location": [
+            "moon",
+            "earth"
         ],
-        "applications": [
-            1,
-            2
-        ],
-        "saved_jobs": [
-            1,
-            2
-        ],
-        "preferences": {
-            "location": [
-                "moon",
-                "earth"
-            ],
-            "salary": 123,
-            "job_type": "Full time"
-        }
-    },
-    {
-        "name": "ultron",
-        "location": "parallel world",
-        "skills": [
-            "Reactjs",
-            "javascript"
-        ],
-        "applications": [
-            1,
-            3
-        ]
-    },
-    {
-        "name": "chandramohan",
-        "location": "moon",
-        "skills": [
-            "Reactjs",
-            "java"
-        ],
-        "applications": [
-            1,
-            2
-        ]
-    },
-    {
-        "name": "chandramohan",
-        "location": "moon",
-        "skills": [
-            "Reactjs",
-            "java"
-        ],
-        "applications": [
-            1,
-            2
-        ]
+        "salary": 123,
+        "job_type": "Full time"
     }
-]
+}

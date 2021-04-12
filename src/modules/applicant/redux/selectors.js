@@ -12,3 +12,13 @@ export const makeSelectIsSavedJob = (jobId) => createSelector(
     makeSelectUserApplications,
     applications => applications
 );
+
+
+
+// selectore for getting saved jobs
+
+export const selectUserSavedJobs = () => createSelector(
+    selectUser,
+    user =>{console.log(user); return user.savedJobs || []}
+);
+

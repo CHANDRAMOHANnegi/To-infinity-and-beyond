@@ -8,26 +8,28 @@ import UserData from './data/user.json';
 
 import Jobs from './modules/jobs/index';
 import { fetchUser } from './modules/applicant/redux/action';
+import Tabs from './modules/jobs/screens/Tabs';
 
 function App({ fetchJobs, jobLoading }) {
-
-  console.log('----------- loaging from redux', jobLoading);
+  // console.log('----------- loaging from redux', jobLoading);
   useEffect(() => {
-    console.log('useeffect appjs');
+    // console.log('useeffect appjs');
     fetchJobs(JobsData);
-    fetchUser(UserData[0]);
+    fetchUser(UserData);
   }, [])
 
   return (
     <div className="App">
-      {jobLoading ? <div>LOADING...</div> : <Jobs />}
+      {jobLoading ? <div>LOADING...</div> :
+        <div>
+          <Jobs />
+        </div>
+      }
     </div>
   );
 }
 
 const mapStateToProps = (state,) => {
-  // global state se data pick karne ke liye
-  console.log('global state ==>', state);
   return {
     jobLoading: state.jobReducer.loading
   }

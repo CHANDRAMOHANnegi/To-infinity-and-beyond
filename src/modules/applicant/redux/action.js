@@ -13,6 +13,7 @@ export function fetchUserSuccess(payload) {
 }
 
 export function saveJobRequest(payload) {
+    console.log('saved job request ',payload);
     return {
         type: SAVE_JOB_REQUEST,
         payload,

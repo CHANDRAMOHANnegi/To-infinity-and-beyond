@@ -14,14 +14,14 @@ function jobReducer(state = clone(initialState), { type, payload, error }) {
     return produce(state, (draft) => {
         switch (type) {
             case actionTypes.FETCH_JOBS_REQUEST: {
-                console.log('reducer', type, payload,);
+                // console.log('reducer', type, payload,);
                 draft.loading = true;
                 draft.error = false;
                 break;
             }
 
             case actionTypes.FETCH_JOBS_SUCCESS: {
-                console.log('reducer', type, payload,);
+                // console.log('reducer', type, payload,);
                 draft.loading = false;
                 draft.error = false;
                 draft.jobs = payload;
